@@ -1,5 +1,5 @@
 <p align="center">
- <img src="/assets/FX_Rate_Widget.png" alt="FX Rate Widget"></a>
+ <img src="https://p79.f0.n0.cdn.getcloudapp.com/items/RBuyLQkw/c7c57bda-cb13-46ec-bd85-1b6c5e17279b.jpeg?source=viewer&v=fdee41d58067612cc5641d9424d77a7c" alt="FX Rate Widget"></a>
 </p>
 
 <h3 align="center">The Documentation Compendium</h3>

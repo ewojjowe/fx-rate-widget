@@ -1,14 +1,16 @@
 
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+input {
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
 }
 
 form {
@@ -32,5 +34,19 @@ form {
     padding: 0px 8px;
     font-size: 13px;
     border-left: 1px solid #858585;
+  }
+
+  p {
+    font-weight: 600;
+
+    &.action-type {
+      padding-right: 23px;
+
+      span {
+        &.curr-rate {
+          float: right;
+        }
+      }
+    }
   }
 }

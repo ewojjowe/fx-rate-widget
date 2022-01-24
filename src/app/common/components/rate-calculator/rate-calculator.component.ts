@@ -10,9 +10,10 @@ import { FormInput } from '../../models/form-input.interface'
 })
 export class RateCalculatorComponent implements OnInit {
 
-  @Input() actionLabel: string
+  @Input() actionLabel: string = 'Buy'
   @Input() isLoading: boolean = true
-  @Input() currencyRates: any
+  @Input() currencyRates: any = []
+  @Input() base: string = 'EUR'
 
   form: FormInput = {
     currency: "USD",
@@ -23,9 +24,17 @@ export class RateCalculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleChange() {
+  handleCurrencyChange() {
     const { amount, currency } = this.form
     this.form.value = amount * this.currencyRates[currency]
+  }
+
+  handleAmountChange(event: any) {
+    const newAmountValue = event
+    const { currency } = this.form
+
+    this.form.amount = newAmountValue
+    this.form.value = newAmountValue * this.currencyRates[currency]
   }
 
 }

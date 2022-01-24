@@ -14,14 +14,17 @@ export class AppComponent {
 
   buy: string = 'Buy'
   sell: string = 'Sell'
+  base: string
   isLoading: boolean
   currencyRates: any
 
   constructor(
     private fxRatesService: FxRatesService
   ) {
-    // this.isLoading = true
-    this.isLoading = false
+    this.isLoading = true
+    this.buy = 'Buy'
+    this.sell = 'Sell'
+    this.base = 'EUR'
     this.currencyRates = {}
   }
 
@@ -35,6 +38,7 @@ export class AppComponent {
       .subscribe(
         data => {
           this.currencyRates = data['rates']
+          this.base = data['base']
           this.isLoading = false
         },
         error => {

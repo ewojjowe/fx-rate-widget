@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable, BehaviorSubject, Subject } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

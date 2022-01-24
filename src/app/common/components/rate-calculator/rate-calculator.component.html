@@ -1,0 +1,38 @@
+<form #mainForm="ngForm">
+	<p>{{ actionLabel }}</p>
+	<div
+		*ngIf="isLoading"
+	>
+		Loading Currency...
+	</div>
+	<ng-container
+		*ngIf="!isLoading"
+	>
+		<select
+			name="currency"
+			[(ngModel)]="form.currency"
+			required
+			(change)="handleChange()"
+			#currency="ngModel"
+		>
+			<option value="" selected disabled>Select Currency</option>
+			<option
+				*ngFor="let rate of currencyRates | keyvalue"
+				[ngValue]="rate.key"
+			>
+				{{rate.key}}
+			</option>
+		</select>
+		<input
+			class="add-input"
+			type="number"
+			placeholder="example.com"
+			name="amount"
+			[(ngModel)]="form.amount"
+			(change)="handleChange()"
+			required
+			#amount="ngModel"
+		>
+		<p>Rate: {{ form.value | currency:form.currency }}</p>
+	</ng-container>
+</form>

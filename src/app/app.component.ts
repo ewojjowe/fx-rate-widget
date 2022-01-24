@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    // this.getCurrency()
+    this.getCurrency()
   }
 
   getCurrency() {

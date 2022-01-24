@@ -1,5 +1,5 @@
 <form #mainForm="ngForm">
-	<p>{{ actionLabel }}</p>
+	<p class="action-type">{{ actionLabel }} <span class="curr-rate">1 {{base}} = {{ currencyRates[form.currency] | currency:form.currency }} {{form.currency}}</span> </p>
 	<div
 		*ngIf="isLoading"
 	>
@@ -12,7 +12,7 @@
 			name="currency"
 			[(ngModel)]="form.currency"
 			required
-			(change)="handleChange()"
+			(change)="handleCurrencyChange()"
 			#currency="ngModel"
 		>
 			<option value="" selected disabled>Select Currency</option>
@@ -26,13 +26,13 @@
 		<input
 			class="add-input"
 			type="number"
-			placeholder="example.com"
 			name="amount"
-			[(ngModel)]="form.amount"
-			(change)="handleChange()"
+			placeholder="Enter Amount"
+			[ngModel]="form.amount"
+			(ngModelChange)="handleAmountChange($event)"
 			required
 			#amount="ngModel"
 		>
-		<p>Rate: {{ form.value | currency:form.currency }}</p>
+		<p>Total Value: {{ form.value | currency:form.currency }}</p>
 	</ng-container>
 </form>
